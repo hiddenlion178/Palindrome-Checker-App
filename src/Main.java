@@ -1,13 +1,25 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void printXInAFrame(int size, int repeat) {
+        for (int i = 0; i < size; i++) {
+            for (int r = 0; r < repeat; r++) {
+
+                if (i == 0 || i == size - 1) {
+                    System.out.print("*");
+                    for (int j = 0; j < size - 2; j++) System.out.print("-");
+                    System.out.print("*");
+                } else {
+                    System.out.print("|");
+                    for (int j = 1; j < size - 1; j++) {
+                        if (j == i || j == size - 1 - i) System.out.print("*");
+                        else System.out.print(" ");
+                    }
+                    System.out.print("|");
+                }
+
+                if (r < repeat - 1) System.out.print(" ");
+            }
+            System.out.println();
+        }
     }
-}
